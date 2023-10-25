@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    
+    <form method="get" action="{% url 'search' %}">
+        <input type="text" name="keyword" placeholder="Search by Title">
+        <input type="date" name="created_at" placeholder="Filter by Creation Date">
+        <input type="date" name="due_date" placeholder="Filter by Due Date">
+        <select name="priority">
+            <option value="">-- Priority --</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select>
+        <label for="is_complete">Marked as Complete</label>
+        <input type="checkbox" name="is_complete" value="False">
+        <input type="submit" value="Apply Filters">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Marked as Complete</th>
+                <th>Created At</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.due_date }}</td>
+                    <td>{{ task.priority }}</td>
+                    <td>{% if task.is_complete %}Yes{% else %}No{% endif %}</td>
+                    <td>{{ task.created_at }}</td>
+                    <td>{{ task.last_updated }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Total Tasks: {{ tasks|length }}</p>
+</body>
+</html>

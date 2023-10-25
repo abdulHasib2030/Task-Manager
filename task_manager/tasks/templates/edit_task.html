@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="mt-12 ">
+    <div class="w-4/5 m-5 mx-auto bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Task Details</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label for="{{ t_form.title.id_for_label }}">Title</label>
+                {{ t_form.title }}
+            </div>
+        
+            <div class="mb-4">
+                <label for="{{ t_form.description.id_for_label }}">Description</label>
+                {{ t_form.description }}
+            </div>
+        
+            <div class="mb-4">
+                <label for="{{ t_form.due_date.id_for_label }}">Due Date and Time</label>
+                <input type="datetime-local" name="{{ t_form.due_date.name }}" value="{{ t_form.due_date.value|date:'Y-m-d' }}T{{ t_form.due_date.value|time:'H:i' }}" class="w-full px-3 py-2 border rounded-md">
+            </div>
+   
+            <div class="mb-4">
+                <label for="{{ t_form.priority.id_for_label }}">Priority</label>
+                {{ t_form.priority }}
+            </div>     
+   
+            <div class="mb-4">
+                <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Update Now</button>
+            </div>
+          </form> 
+    </div>
+    
+</div>
+ {% endblock  %} 
