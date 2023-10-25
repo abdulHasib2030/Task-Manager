@@ -14,10 +14,10 @@ class UserRegistrationView(FormView):
     success_url = reverse_lazy('home')
     
     def form_valid(self,form):
-        print(form.cleaned_data)
+       
         user = form.save()
         login(self.request, user)
-        print(user)
+        
         return super().form_valid(form) 
     
 ########### User Login ###############
