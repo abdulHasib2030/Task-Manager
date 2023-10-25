@@ -22,7 +22,10 @@
     </head>
     <body class="bg-gradient-to-r from-gray-700 to-indigo-500 font-sans leading-normal tracking-normal">
         {% include "navbar.html" %}
+        {% if request.user.is_authenticated %}
         {% include "task.html" %}
+
+        {% endif%}
                 {% block content %}
 
               
