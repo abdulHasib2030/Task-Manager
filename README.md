@@ -1,5 +1,6 @@
 # Task-Manager
-This is Task Manager Which Create Task, Edit, Delete 
+This is Task Manager Which Create Task, Edit, Delete 	
+
 git clone repositories
 virtualenv venv
 ./venv/scripts/activate
