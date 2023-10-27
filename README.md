@@ -75,5 +75,87 @@ Start the server
 ```bash
   python manage.py runserver
 ```
+## Task Manager RESTFul-API
+Task manager application built using Django Rest Framework and PostgreSQL. It follows a RESTFul API design architecture. The app registration and login of the user's account. 
+
+## Features
+* User Registration and Authentication
+* Add Task, Edit Task, Delete Task, Single Image Delete
+* ‍View All Task
+
+
+## API Endpoints
+
+```http
+POST /api/register/
+```
+
+| Method | Access    | Description                | 
+| :-------- | :------- | :------------------------- |
+| `POST` | `Public` | User Account Registration |
+
+
+```http
+POST /api/login/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `POST`      | `Public` | User Account Login |
+
+```http
+POST /api/logout/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `POST`      | `Private` | User Account Logout |
+
+
+```http
+POST /api/create/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `POST`      | `Private` | User Create a Task |
+
+
+
+```http
+GET /api/task/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `GET`      | `Private` | User View a Task |
+
+
+```http
+PUT /api/task/<int:pk>/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `PUT`      | `Private` | User Update a Task |
+
+
+```http
+DELETE /api/task/<int:pk>/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `DELETE`      | `Private` | User Delete a Task |
+
+
+```http
+DELETE /api/delete/<int:pk>/
+```
+
+| Method | Access    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `DELETE`      | `Private` | User Single image Delete a Task |
+
 
 
